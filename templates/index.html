@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f6fa">
+  <title>Colocador de muebles · Muemovil</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" role="presentation" focusable="false">
+          <path class="icon-room" d="M8 21.5 24 9l16 12.5v16a2.5 2.5 0 0 1-2.5 2.5h-27A2.5 2.5 0 0 1 8 38V21.5Z" />
+          <path class="icon-furniture" d="M14 29.5a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3V36H14v-6.5ZM17 36v3m14-3v3M11 23l13-10 13 10" />
+          <path class="icon-spark" d="M36.5 8v6m-3-3h6" />
+        </svg>
+      </div>
+      <div class="hero-topline">
+        <p class="eyebrow" data-i18n="brand">MUEMOVIL · DISEÑO DE INTERIORES</p>
+        <label class="language-control" for="idioma">
+          <span class="language-label" data-i18n="languageLabel">Idioma</span>
+          <select id="idioma" aria-label="Idioma">
+            <option value="es">🇪🇸 Español</option>
+            <option value="en">🇬🇧 English</option>
+            <option value="fr">🇫🇷 Français</option>
+          </select>
+        </label>
+      </div>
+      <h1 data-i18n="title">Dale un nuevo lugar a tus ideas</h1>
+      <p class="intro" data-i18n="intro">Descubre cómo encaja ese mueble que te encanta. Comparte una foto de tu habitación y encuentra el rincón perfecto para hacerlo tuyo.</p>
+    </header>
+
+    <section class="workspace" aria-label="Planificador de muebles" data-i18n-aria="workspaceLabel">
+      <form id="formulario" class="form-panel" enctype="multipart/form-data">
+        <div class="section-heading">
+          <span class="step">01</span>
+          <div><h2 data-i18n="spaceTitle">Prepara tu espacio</h2><p data-i18n="spaceIntro">Usa una foto clara de la habitación.</p></div>
+        </div>
+
+        <label class="upload-card" for="imagenEscenario">
+          <span class="upload-icon" aria-hidden="true">↑</span>
+          <span class="upload-title" data-i18n="roomPhoto">Foto de la habitación <b data-i18n="required">Obligatoria</b></span>
+          <span class="upload-hint" data-i18n="fileHint">JPG, PNG o WEBP · hasta 16 MB</span>
+          <input id="imagenEscenario" name="imagenEscenario" type="file" accept="image/*" aria-label="Foto de la habitación" required>
+        </label>
+        <img id="vistaEscenario" class="preview scene-preview" alt="Vista previa de la habitación" data-i18n-alt="roomPreviewAlt" hidden>
+
+        <label class="field" for="limiteProfundidad">
+          <span data-i18n="distanceLabel">Distancia hasta el fondo de la habitación</span>
+          <span class="input-with-unit"><input id="limiteProfundidad" name="limiteProfundidadCm" type="number" min="1" max="5000" step="any" placeholder="p. ej. 300" aria-label="Distancia hasta el fondo en centímetros" required><span aria-hidden="true">cm</span></span>
+          <small data-i18n="distanceHint">Mide desde donde tomaste la foto hasta la pared del fondo.</small>
+        </label>
+
+        <div class="section-heading furniture-heading">
+          <span class="step">02</span>
+          <div><h2 data-i18n="furnitureTitle">Añade un mueble</h2><p data-i18n="furnitureIntro">Sube una foto o indica sus medidas.</p></div>
+        </div>
+
+        <label class="upload-card furniture-upload" for="imagenMueble">
+          <span class="upload-icon" aria-hidden="true">＋</span>
+          <span class="upload-title" data-i18n="furniturePhoto">Foto del mueble <b data-i18n="optional">Opcional</b></span>
+          <span class="upload-hint" data-i18n="furnitureHint">Las imágenes con fondo transparente ofrecen un mejor resultado.</span>
+          <input id="imagenMueble" name="imagenMueble" type="file" accept="image/*" aria-label="Foto del mueble">
+        </label>
+        <img id="vistaMueble" class="preview furniture-preview" alt="Vista previa del mueble" data-i18n-alt="furniturePreviewAlt" hidden>
+
+        <div class="dimension-fields">
+          <label class="field" for="anchoCm"><span data-i18n="width">Ancho</span><span class="input-with-unit"><input id="anchoCm" name="anchoCm" type="number" min="1" max="2000" step="any" placeholder="70"><span aria-hidden="true">cm</span></span></label>
+          <label class="field" for="fondoCm"><span data-i18n="depth">Fondo</span><span class="input-with-unit"><input id="fondoCm" name="fondoCm" type="number" min="1" max="2000" step="any" placeholder="50"><span aria-hidden="true">cm</span></span></label>
+        </div>
+        <p class="helper" data-i18n="measureHint">Indica ambas medidas o sube una imagen. Si solo usas imagen, se aplicarán medidas orientativas de 70 × 50 cm.</p>
+
+        <button id="analizar" class="submit-button" type="submit">
+          <span data-i18n="submit">Encontrar el mejor lugar</span><span aria-hidden="true">→</span>
+        </button>
+        <p class="privacy-note" data-i18n="privacy">Tus imágenes se usan solo para preparar esta propuesta.</p>
+      </form>
+
+      <aside class="result-panel" aria-live="polite">
+        <div id="estadoInicial" class="empty-state">
+          <div class="room-icon" aria-hidden="true"><span></span><span></span><span></span></div>
+          <h2 data-i18n="resultPlaceholder">Tu propuesta aparecerá aquí</h2>
+          <p data-i18n="resultIntro">Verás una sugerencia que respeta la distribución de tu habitación y los muebles existentes.</p>
+        </div>
+        <div id="cargando" class="loading-state" hidden>
+          <div class="spinner" aria-hidden="true"></div>
+          <h2 data-i18n="loadingTitle">Preparando tu propuesta</h2>
+          <p id="mensajeCarga" data-i18n="loadingMessage">Estamos revisando el espacio y las medidas.</p>
+          <small data-i18n="loadingHint">La primera propuesta puede tardar un poco más.</small>
+        </div>
+        <div id="resultado" class="result-content" hidden>
+          <div class="result-heading"><div><p class="eyebrow" data-i18n="resultEyebrow">TU PROPUESTA</p><h2 id="tituloResultado"></h2></div><span id="marcaEstado" class="status-badge"></span></div>
+          <p id="resumenResultado" class="result-summary"></p>
+          <div class="image-frame"><img id="imagenResultado" alt="Escenario con la ubicación sugerida del mueble" data-i18n-alt="resultAlt"></div>
+          <div id="datosResultado" class="result-details"></div>
+          <p id="notaResultado" class="result-note"></p>
+        </div>
+      </aside>
+    </section>
+    <footer><span data-i18n="footer">Ideas para vivir mejor</span><a href="#formulario" data-i18n="backToForm">Volver al planificador</a></footer>
+  </main>
+</body>
+</html>
