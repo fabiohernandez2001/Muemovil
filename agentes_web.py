@@ -478,8 +478,9 @@ class AgenteQA(AgenteRol):
         checks["hoja_estilos_adaptable"] = "@media (max-width: 800px)" in hoja_estilos and "@media (max-width: 420px)" in hoja_estilos
         checks["ilustracion_natural_bosque"] = 'url("/static/forest-canopy.svg")' in hoja_estilos
         checks["paleta_verde_y_blanco"] = all(color in hoja_estilos for color in ("#173d2f", "#fff"))
-        checks["jerarquia_tipografica"] = "--font-display: Georgia" in hoja_estilos and "font-size: clamp(38px" in hoja_estilos
-        checks["texto_de_interfaz_legible"] = "font-size: 15px" in hoja_estilos and "font-size: 13px" in hoja_estilos
+        checks["jerarquia_tipografica"] = '"Fraunces"' in hoja_estilos and "font-size: clamp(38px" in hoja_estilos
+        checks["tipografias_accesibles"] = '"Atkinson Hyperlegible Next"' in hoja_estilos and "fonts.googleapis.com/css2" in plantilla_html
+        checks["texto_de_interfaz_legible"] = "font-size: 17px" in hoja_estilos and "font-size: 15px" in hoja_estilos
         checks["foco_visible"] = ":focus-visible" in hoja_estilos
         checks["foco_en_carga_de_archivo"] = ".upload-card:focus-within" in hoja_estilos
         checks["movimiento_reducido"] = "prefers-reduced-motion" in hoja_estilos

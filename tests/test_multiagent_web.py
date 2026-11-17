@@ -105,6 +105,10 @@ class SistemaMultiagenteWebTests(unittest.TestCase):
         finally:
             respuesta_estilos.close()
         self.assertIn('url("/static/forest-canopy.svg")', hoja_estilos)
+        self.assertIn('"Fraunces"', hoja_estilos)
+        self.assertIn('"Atkinson Hyperlegible Next"', hoja_estilos)
+        self.assertIn("font-size: 17px", hoja_estilos)
+        self.assertIn("font-size: 15px", hoja_estilos)
         self.assertIn("@media (max-width: 800px)", hoja_estilos)
         self.assertIn("@media (max-width: 420px)", hoja_estilos)
         self.assertIn("prefers-reduced-motion", hoja_estilos)

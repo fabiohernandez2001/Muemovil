@@ -15,7 +15,7 @@ Los agentes no se comunican directamente. Cada tarea declara sus dependencias y 
 
 ## Diseño visual
 
-La portada usa una ilustración SVG de copas de árboles con grano suave y un degradado de verde bosque a blanco cálido. DESIGNER establece una jerarquía editorial: Georgia para titulares y Aptos/Segoe UI para controles y texto de lectura, con títulos fluidos y texto de formulario desde 13–15 px. La composición se adapta a escritorio, tablet y móvil; mantiene el selector de idioma, foco de teclado y preferencia de movimiento reducido.
+La portada usa una ilustración SVG de copas de árboles con grano suave y un degradado de verde bosque a blanco cálido. DESIGNER establece una jerarquía editorial con Fraunces para titulares y Atkinson Hyperlegible Next para controles y lectura; si no hay conexión, se usan fuentes del sistema. El texto principal parte de 17 px y las indicaciones de 15 px. La composición se adapta a escritorio, tablet y móvil; mantiene el selector de idioma, foco de teclado y preferencia de movimiento reducido.
 
 ## 1. Inicio
 
