@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 760" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="800" y1="0" x2="800" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#a5ba83" stop-opacity=".44"/>
+      <stop offset=".38" stop-color="#618456" stop-opacity=".25"/>
+      <stop offset="1" stop-color="#173d2f" stop-opacity=".1"/>
+    </linearGradient>
+    <radialGradient id="sunlight" cx="0" cy="0" r="1" gradientTransform="matrix(0 560 -660 0 1040 86)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#e6edc8" stop-opacity=".64"/>
+      <stop offset="1" stop-color="#dce9ba" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="trunk" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#112b21" stop-opacity=".92"/>
+      <stop offset=".5" stop-color="#557253" stop-opacity=".74"/>
+      <stop offset="1" stop-color="#183b2c" stop-opacity=".9"/>
+    </linearGradient>
+    <pattern id="grain" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="4" r=".8" fill="#e5edce" fill-opacity=".12"/>
+      <circle cx="22" cy="16" r=".6" fill="#e5edce" fill-opacity=".09"/>
+      <path d="M9 25c3-3 5-3 8 0" stroke="#e5edce" stroke-opacity=".05"/>
+    </pattern>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1600v760H0z"/>
+  <path fill="url(#sunlight)" d="M0 0h1600v760H0z"/>
+  <g fill="#264a35" fill-opacity=".46">
+    <path d="M0 330c82-49 124-120 170-220 38 90 93 152 183 185-72 7-121 30-157 78 64 0 107 23 139 68-91-18-163-1-214 53-43-88-87-140-121-164Z"/>
+    <path d="M1600 280c-77-52-123-122-165-222-42 86-99 150-183 183 70 7 119 30 155 78-63 0-108 22-140 68 92-16 164 3 215 55 39-85 81-137 118-162Z"/>
+    <path d="M247 0h78c-13 169-7 328 18 477l-82 5C274 319 266 160 247 0Zm1005 0h78c-20 167-30 327-22 482l-82-5c23-151 31-309 26-477Z" fill="url(#trunk)"/>
+    <path d="M356 0c80 41 126 96 145 166-55-39-104-48-148-26 59 34 89 78 93 132-55-39-114-50-179-32C307 155 337 75 356 0Zm888 0c-83 40-130 94-149 163 55-39 104-47 148-24-59 33-90 76-94 130 57-38 115-48 179-29-41-86-65-165-84-240Z"/>
+  </g>
+  <g fill="#75906a" fill-opacity=".35">
+    <path d="M0 417c99-41 174-98 232-173 51 77 116 126 207 151-75 18-129 55-162 109 77-18 140-8 197 34-100-2-176 32-228 99-48-81-131-150-246-220Z"/>
+    <path d="M1600 420c-99-41-174-98-232-173-51 77-116 126-207 151 75 18 129 55 162 109-77-18-140-8-197 34 100-2 176 32 228 99 48-81 131-150 246-220Z"/>
+  </g>
+  <path fill="#173d2f" fill-opacity=".25" d="M0 548c168-88 350-111 543-69 165 37 317 46 454 27 225-31 426-13 603 55v199H0V548Z"/>
+  <path fill="url(#grain)" d="M0 0h1600v760H0z"/>
+</svg>

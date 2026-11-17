@@ -6,12 +6,16 @@ El proyecto ofrece una interfaz web para enviar una imagen de una habitación y 
 
 **Cerebro** es el único orquestador y está por encima de los agentes especialistas. Recibe un plan de tareas atómicas, resuelve las dependencias, pasa a cada agente solo las entradas que necesita, y acepta sus resultados. Un candado serializa los planes para que nunca se ejecuten tareas a la vez.
 
-- **DESIGNER:** solo puede leer la plantilla HTML. Proporciona la interfaz del formulario.
+- **DESIGNER:** solo puede leer la plantilla HTML. Define la interfaz del formulario y su sistema visual.
 - **BACKEND:** solo puede validar entradas, detectar obstáculos, buscar una ubicación y generar la imagen anotada.
 - **QA:** comprueba la plantilla y valida cada respuesta de la API. La suite de integración también verifica que la aplicación completa funciona.
 - **LOGGER:** registra asignaciones, inicio y fin de tareas, comunicaciones mediadas por Cerebro y errores. No escribe imágenes ni archivos subidos.
 
 Los agentes no se comunican directamente. Cada tarea declara sus dependencias y salidas. Cerebro la inicia cuando sus entradas están disponibles, y pasa las salidas a la siguiente tarea. Si faltan agentes, entradas o dependencias, el orquestador detiene el plan y registra el error.
+
+## Diseño visual
+
+La portada usa una ilustración SVG de copas de árboles con grano suave y un degradado de verde bosque a blanco cálido. DESIGNER establece una jerarquía editorial: Georgia para titulares y Aptos/Segoe UI para controles y texto de lectura, con títulos fluidos y texto de formulario desde 13–15 px. La composición se adapta a escritorio, tablet y móvil; mantiene el selector de idioma, foco de teclado y preferencia de movimiento reducido.
 
 ## 1. Inicio
 

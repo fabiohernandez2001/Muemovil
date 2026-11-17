@@ -92,6 +92,23 @@ class SistemaMultiagenteWebTests(unittest.TestCase):
                 self.assertEqual(respuesta_asset.status_code, 200)
                 respuesta_asset.close()
 
+    def test_diseno_natural_se_entrega_con_textura_bosque(self):
+        respuesta = self.cliente.get("/static/forest-canopy.svg")
+        try:
+            self.assertEqual(respuesta.status_code, 200)
+            self.assertIn(b"<svg", respuesta.data)
+        finally:
+            respuesta.close()
+        respuesta_estilos = self.cliente.get("/static/style.css")
+        try:
+            hoja_estilos = respuesta_estilos.get_data(as_text=True)
+        finally:
+            respuesta_estilos.close()
+        self.assertIn('url("/static/forest-canopy.svg")', hoja_estilos)
+        self.assertIn("@media (max-width: 800px)", hoja_estilos)
+        self.assertIn("@media (max-width: 420px)", hoja_estilos)
+        self.assertIn("prefers-reduced-motion", hoja_estilos)
+
     def test_api_detecta_obstaculo_propone_ubicacion_y_pasa_qa(self):
         respuesta = self.cliente.post(
             "/api/analizar",
